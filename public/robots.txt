@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# CMS admin panel
+Disallow: /api/
+Disallow: /login
+Disallow: /apos-frontend/
+
+# Sitemap
+Sitemap: https://antiddos.su/sitemap.xml

@@ -14,9 +14,22 @@
   {%- endif -%}
   <meta name="author" content="AntiDDoS.su">
   <meta name="robots" content="index, follow">
+
+  {# Open Graph #}
   <meta property="og:site_name" content="AntiDDoS.su">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://antiddos.su{{ data.page._url or data.url }}">
+  <meta property="og:image" content="https://antiddos.su/images/og-default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  {# Twitter Card #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@antiddos_su">
+  <meta name="twitter:title" content="{{ title }} — AntiDDoS.su">
+  <meta name="twitter:description" content="Профессиональная защита от DDoS-атак, WAF и CDN. Фильтрация трафика до 10 Tbps.">
+  <meta name="twitter:image" content="https://antiddos.su/images/og-default.png">
 
   {# Organization JSON-LD #}
   <script type="application/ld+json">
@@ -25,10 +38,10 @@
     "@type": "Organization",
     "name": "AntiDDoS.su",
     "url": "https://antiddos.su",
+    "logo": "https://antiddos.su/images/og-default.png",
     "description": "Профессиональная защита от DDoS-атак, WAF и CDN. Фильтрация трафика до 10 Tbps по BGP-протоколу.",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+7-495-000-00-00",
       "contactType": "customer service",
       "email": "info@antiddos.su",
       "availableLanguage": "Russian"

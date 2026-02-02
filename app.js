@@ -44,6 +44,9 @@ require('apostrophe')({
     'steps-widget': {},
     'faq-widget': {},
     'services-widget': {},
+    'pricing-widget': {},
+    'breadcrumbs-widget': {},
+    'related-services-widget': {},
 
     // Theme — all assets/client JS and server side templates
     theme: {}

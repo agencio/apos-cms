@@ -1,0 +1,70 @@
+{%- set w = data.widget -%}
+{%- set page = data.page -%}
+{%- set breadcrumbs = [] -%}
+
+{# Build breadcrumb chain from page ancestors #}
+{% if w.showHome %}
+  {% set breadcrumbs = breadcrumbs.concat([{ label: 'Главная', url: '/' }]) %}
+{% endif %}
+
+{# Add custom items #}
+{% if w.customItems | length %}
+  {% for item in w.customItems %}
+    {% set breadcrumbs = breadcrumbs.concat([{ label: item.label, url: item.url }]) %}
+  {% endfor %}
+{% endif %}
+
+{# Add ancestors from Apostrophe page tree #}
+{% if data.page._ancestors %}
+  {% for ancestor in data.page._ancestors %}
+    {% if ancestor.slug != '/' or not w.showHome %}
+      {% set breadcrumbs = breadcrumbs.concat([{ label: ancestor.title, url: ancestor._url }]) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Current page (no link) #}
+{% set currentTitle = data.piece.title or data.page.title %}
+
+{% if breadcrumbs | length or currentTitle %}
+  <nav aria-label="Breadcrumb" class="py-3">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <ol class="flex flex-wrap items-center gap-1 text-sm text-dark-400">
+        {% for crumb in breadcrumbs %}
+          <li class="flex items-center gap-1">
+            <a href="{{ crumb.url }}" class="hover:text-brand transition-colors">{{ crumb.label }}</a>
+            <span class="mx-1 text-dark-300">/</span>
+          </li>
+        {% endfor %}
+        {% if currentTitle %}
+          <li class="text-dark-600 font-medium" aria-current="page">{{ currentTitle }}</li>
+        {% endif %}
+      </ol>
+    </div>
+  </nav>
+
+  {# JSON-LD BreadcrumbList #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {% for crumb in breadcrumbs %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "name": "{{ crumb.label | replace('"', '\\"') }}",
+        "item": "https://antiddos.su{{ crumb.url }}"
+      },
+      {% endfor %}
+      {% if currentTitle %}
+      {
+        "@type": "ListItem",
+        "position": {{ breadcrumbs | length + 1 }},
+        "name": "{{ currentTitle | replace('"', '\\"') }}"
+      }
+      {% endif %}
+    ]
+  }
+  </script>
+{% endif %}

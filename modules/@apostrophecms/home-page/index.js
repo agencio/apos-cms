@@ -28,7 +28,10 @@ module.exports = {
             specs: {},
             steps: {},
             faq: {},
-            services: {}
+            services: {},
+            pricing: {},
+            breadcrumbs: {},
+            'related-services': {}
           }
         }
       }

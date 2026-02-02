@@ -52,7 +52,15 @@ module.exports = {
             cta: {},
             promo: {},
             blockquote: {},
-            content: {}
+            content: {},
+            features: {},
+            specs: {},
+            steps: {},
+            faq: {},
+            services: {},
+            pricing: {},
+            breadcrumbs: {},
+            'related-services': {}
           }
         }
       }

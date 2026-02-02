@@ -10,11 +10,38 @@
 
     <div class="space-y-4">
       {% for item in w.items %}
-        <div class="bg-white rounded-xl border border-dark-200 p-6">
-          <h3 class="text-lg font-bold text-dark-900 mb-3">{{ item.question }}</h3>
-          <p class="text-dark-500">{{ item.answer }}</p>
-        </div>
+        <details class="group bg-white rounded-xl border border-dark-200 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer p-6 hover:bg-gray-50 transition-colors">
+            <h3 class="text-lg font-bold text-dark-900 pr-4">{{ item.question }}</h3>
+            <span class="flex-shrink-0 text-brand transition-transform group-open:rotate-45 text-2xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 pt-0">
+            <p class="text-dark-500">{{ item.answer }}</p>
+          </div>
+        </details>
       {% endfor %}
     </div>
   </div>
+
+  {# JSON-LD FAQPage structured data — critical for rich snippets #}
+  {% if w.items | length %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {% for item in w.items %}
+        {
+          "@type": "Question",
+          "name": "{{ item.question | replace('"', '\\"') }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ item.answer | replace('"', '\\"') }}"
+          }
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+    </script>
+  {% endif %}
 </section>

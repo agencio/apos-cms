@@ -1,0 +1,93 @@
+{%- set w = data.widget -%}
+
+<section class="py-12 md:py-20 bg-dark-900">
+  <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+    {% if w.sectionTitle %}
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">{{ w.sectionTitle }}</h2>
+        {% if w.sectionSubtitle %}
+          <p class="text-lg text-dark-300 max-w-2xl mx-auto">{{ w.sectionSubtitle }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-{{ w.items | length if w.items | length <= 4 else 4 }} gap-6 items-stretch">
+      {% for plan in w.items %}
+        <div class="relative flex flex-col bg-dark-800 rounded-2xl border-2 {% if plan.highlighted %}border-brand shadow-[0_0_30px_rgba(0,184,255,0.15)]{% else %}border-dark-700{% endif %} p-8">
+          {% if plan.highlighted %}
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand text-white text-xs font-bold px-4 py-1 rounded-full">Рекомендуем</span>
+          {% endif %}
+          <div class="mb-6">
+            <h3 class="text-xl font-bold text-white mb-2">{{ plan.title }}</h3>
+            {% if plan.description %}
+              <p class="text-dark-400 text-sm">{{ plan.description }}</p>
+            {% endif %}
+          </div>
+          <div class="mb-6">
+            <span class="text-4xl font-extrabold text-white">{{ plan.price }}</span>
+            {% if plan.priceNumeric %}
+              <span class="text-dark-400 text-lg"> {{ w.currency }}{{ w.period }}</span>
+            {% endif %}
+          </div>
+          {% if plan.features | length %}
+            <ul class="space-y-3 mb-8 flex-grow">
+              {% for f in plan.features %}
+                <li class="text-sm text-dark-300 flex items-start gap-2">
+                  <span class="text-brand font-bold mt-0.5">✓</span>
+                  <span>{{ f.text }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if plan.ctaUrl %}
+            <a href="{{ plan.ctaUrl }}"
+               class="block text-center px-6 py-3 rounded-lg font-bold transition-colors text-sm
+                      {% if plan.highlighted %}bg-brand text-white hover:bg-brand-600{% else %}border-2 border-brand text-brand hover:bg-brand hover:text-white{% endif %}">
+              {{ plan.ctaLabel or 'Подключить' }}
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {# JSON-LD Product/Offer structured data #}
+  {% if w.items | length %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "{{ w.sectionTitle | default('Тарифные планы') }}",
+      "itemListElement": [
+        {% for plan in w.items %}
+        {
+          "@type": "ListItem",
+          "position": {{ loop.index }},
+          "item": {
+            "@type": "Product",
+            "name": "{{ plan.title }}",
+            {% if plan.description %}"description": "{{ plan.description }}",{% endif %}
+            "brand": {"@type": "Organization", "name": "AntiDDoS.su"},
+            {% if plan.priceNumeric %}
+            "offers": {
+              "@type": "Offer",
+              "price": "{{ plan.priceNumeric }}",
+              "priceCurrency": "RUB",
+              "availability": "https://schema.org/InStock",
+              "url": "https://antiddos.su{{ plan.ctaUrl or '/contacts' }}"
+            }
+            {% else %}
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "url": "https://antiddos.su{{ plan.ctaUrl or '/contacts' }}"
+            }
+            {% endif %}
+          }
+        }{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ]
+    }
+    </script>
+  {% endif %}
+</section>
