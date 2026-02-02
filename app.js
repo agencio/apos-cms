@@ -1,42 +1,33 @@
 require('apostrophe')({
-  shortName: 'a3-ecommerce-starter',
+  shortName: 'antiddos-su',
   modules: {
-    // Design system: register only when not in production.
-    // Install via `npm install @corllete/apos-ds` first.
-    // Be sure to add some additonal configuration in
-    // `modules/@corllete/apos-ds/index.js` and
-    // `modules/@corllete/apos-ds-page-type/views/layout/preview.html`
-    // and park the page in `modules/@apostrophecms/page/index.js` as
-    // described in the docs.
-
-    // ...(process.env.NODE_ENV !== 'production'
-    //   ? {
-    //     '@corllete/apos-ds': {
-    //       options: {
-    //         modules: [ 'theme' ],
-    //         docs: false
-    //       }
-    //     },
-    //     '@corllete/apos-ds-page-type': {
-    //       options: {
-    //         legacyCodeBlocks: false,
-    //         useReleaseId: false
-    //       }
-    //     }
-    //   }
-    //   : {}
-    // ),
-    // END Design system
-
+    // SEO & Open Graph
     '@apostrophecms/open-graph': {},
     '@apostrophecms/seo': {},
+
+    // i18n
     i18n: {},
     tag: {},
+
+    // Product/Service pieces (from apos-cms engine — adapted for services)
     'product-category': {},
     'product-category-page': {},
     product: {},
     'product-page': {},
+
+    // Blog pieces
+    blog: {},
+    'blog-page': {},
+
+    // Page types
     'default-page': {},
+    'antiddos-page': {},
+    'waf-page': {},
+    'cdn-page': {},
+    'about-page': {},
+    'contact-page': {},
+
+    // Widgets (from apos-cms engine)
     'content-widget': {},
     'hero-full-widget': {},
     'hero-split-widget': {},
@@ -46,7 +37,15 @@ require('apostrophe')({
     'product-widget': {},
     'product-featured-widget': {},
     'product-category-widget': {},
-    // All assets/client JS and server side templates.
+
+    // AntiDDoS custom widgets
+    'features-widget': {},
+    'specs-widget': {},
+    'steps-widget': {},
+    'faq-widget': {},
+    'services-widget': {},
+
+    // Theme — all assets/client JS and server side templates
     theme: {}
   }
 });

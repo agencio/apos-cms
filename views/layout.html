@@ -5,16 +5,39 @@
 
 {% set title = data.piece.title or data.page.title %}
 {% block title %}
-  {{ title }}
-  {% if not title %}
-    {{ apos.log('Looks like you forgot to override the title block in a template that does not have access to an Apostrophe page or piece.') }}
-  {% endif %}
+  {{ title }} — AntiDDoS.su | Защита от DDoS-атак, WAF, CDN
 {% endblock %}
 
 {% block extraHead %}
   {%- if data.global.favicon -%}
   <link rel="icon" href="{{ data.global.favicon._url }}" />
   {%- endif -%}
+  <meta name="author" content="AntiDDoS.su">
+  <meta name="robots" content="index, follow">
+  <meta property="og:site_name" content="AntiDDoS.su">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:type" content="website">
+
+  {# Organization JSON-LD #}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AntiDDoS.su",
+    "url": "https://antiddos.su",
+    "description": "Профессиональная защита от DDoS-атак, WAF и CDN. Фильтрация трафика до 10 Tbps по BGP-протоколу.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+7-495-000-00-00",
+      "contactType": "customer service",
+      "email": "info@antiddos.su",
+      "availableLanguage": "Russian"
+    },
+    "sameAs": [
+      "https://t.me/antiddos_su"
+    ]
+  }
+  </script>
 {% endblock %}
 
 {% block beforeMain %}
@@ -35,7 +58,6 @@
   </div>
 {% endblock %}
 
-{# Should be the same as your application layout #}
 {% block afterAposScripts %}
   {% include "theme:icons.svg.html" %}
 {% endblock %}

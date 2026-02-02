@@ -1,29 +1,26 @@
 module.exports = {
+  extend: '@apostrophecms/page-type',
   options: {
-    label: 'app:homePage'
+    label: 'WAF'
   },
   fields: {
     add: {
-      heading: {
-        type: 'area',
-        options: {
-          widgets: {
-            'hero-full': {}
-          },
-          max: 1
-        }
+      tagline: {
+        type: 'string',
+        label: 'app:tagline',
+        textarea: true,
+        max: 300
       },
       main: {
         type: 'area',
         options: {
           widgets: {
-            product: {},
-            'product-featured': {},
-            'product-category': {},
+            content: {},
+            'hero-full': {},
+            'hero-split': {},
             cta: {},
             promo: {},
             blockquote: {},
-            content: {},
             features: {},
             specs: {},
             steps: {},
@@ -36,11 +33,7 @@ module.exports = {
     group: {
       basics: {
         label: 'app:groupBasics',
-        fields: [
-          'title',
-          'heading',
-          'main'
-        ]
+        fields: ['title', 'tagline', 'main']
       }
     }
   }

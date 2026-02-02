@@ -1,23 +1,33 @@
-const park = [];
-// Design system: park the only when in local environment.
-if (process.env.NODE_ENV !== 'production') {
-  // Enable Corllete design system if installed.
-  // park.push({
-  //   parkedId: 'design-system',
-  //   type: '@corllete/apos-ds-page-type',
-  //   _defaults: {
-  //     slug: '/ds',
-  //     title: 'Design System'
-  //   }
-  // });
-}
-
 module.exports = {
   options: {
     types: [
       {
         name: 'default-page',
         label: 'app:default'
+      },
+      {
+        name: 'antiddos-page',
+        label: 'Anti-DDoS защита'
+      },
+      {
+        name: 'waf-page',
+        label: 'WAF'
+      },
+      {
+        name: 'cdn-page',
+        label: 'CDN'
+      },
+      {
+        name: 'about-page',
+        label: 'О компании'
+      },
+      {
+        name: 'contact-page',
+        label: 'Контакты'
+      },
+      {
+        name: 'blog-page',
+        label: 'Блог'
       },
       {
         name: 'product-page',
@@ -33,13 +43,12 @@ module.exports = {
       }
     ],
     park: [
-      ...park,
       {
         parkedId: 'core-search',
         type: '@apostrophecms/search',
         slug: '/search',
         _defaults: {
-          title: 'Search'
+          title: 'Поиск'
         }
       }
     ]

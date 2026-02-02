@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+{% import 'theme:helpers.html' as helpers %}
+
+{% block title %}Anti-DDoS защита — Фильтрация DDoS-атак L3/L4/L7 по BGP | AntiDDoS.su{% endblock %}
+
+{% block extraHead %}
+  {{ super() }}
+  <meta name="description" content="Профессиональная защита от DDoS-атак на уровнях L3, L4 и L7. Фильтрация трафика до 10 Tbps по BGP-протоколу. Время реакции менее 10 секунд. SLA 99.99%.">
+  <meta name="keywords" content="защита от DDoS, антиддос, Anti-DDoS, BGP защита, фильтрация трафика, L3 L4 L7, DDoS mitigation">
+  <meta property="og:title" content="Anti-DDoS защита — AntiDDoS.su">
+  <meta property="og:description" content="Фильтрация DDoS-атак до 10 Tbps по BGP-протоколу. Защита L3/L4/L7. SLA 99.99%.">
+  <link rel="canonical" href="https://antiddos.su/anti-ddos">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Anti-DDoS защита",
+    "provider": {"@type": "Organization", "name": "AntiDDoS.su"},
+    "description": "Комплексная фильтрация DDoS-атак на уровнях L3/L4/L7 по BGP-протоколу. Мощность до 10 Tbps.",
+    "serviceType": "DDoS Protection"
+  }
+  </script>
+{% endblock %}
+
+{% block main %}
+  {# ===== PAGE HERO ===== #}
+  <section class="relative bg-dark-900 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 50%, rgba(0,184,255,0.3) 0%, transparent 60%);"></div>
+    </div>
+    <div class="relative w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl py-16 md:py-24">
+      <div class="max-w-3xl">
+        <span class="inline-block px-3 py-1 bg-brand/20 text-brand text-sm font-semibold rounded-full mb-4">Услуга</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Anti-DDoS <span class="text-brand">защита</span></h1>
+        <p class="text-lg text-dark-300 max-w-2xl">
+          Комплексная фильтрация вредоносного трафика на всех уровнях сетевой модели.
+          Работаем по BGP-протоколу — без изменений в вашей инфраструктуре.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {# ===== WHAT IS DDOS ===== #}
+  <section class="py-12 md:py-20">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-headings:text-dark-900 prose-p:text-dark-600">
+        <h2>Что такое DDoS-атака и почему нужна защита</h2>
+        <p>
+          <strong>DDoS-атака</strong> (Distributed Denial of Service) — это распределённая атака на отказ в обслуживании,
+          при которой злоумышленники направляют огромный объём трафика на целевой сервер, сеть или приложение.
+          Цель атаки — сделать ресурс недоступным для легитимных пользователей.
+        </p>
+        <p>
+          Современные DDoS-атаки достигают мощности в сотни гигабит и даже терабит в секунду.
+          Без профессиональной защиты даже крупные провайдеры не способны противостоять таким объёмам.
+          <strong>AntiDDoS.su</strong> обеспечивает фильтрацию до <strong>10 Tbps</strong> входящего трафика.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {# ===== PROTECTION LEVELS ===== #}
+  <section class="py-12 md:py-20 bg-gray-50">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-dark-900 mb-4">Уровни защиты</h2>
+        <p class="text-lg text-dark-500 max-w-2xl mx-auto">Многоуровневая фильтрация для полной нейтрализации атак</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand text-white font-bold text-sm">L3</span>
+            <h3 class="text-lg font-bold text-dark-900">Сетевой уровень</h3>
+          </div>
+          <p class="text-dark-500 text-sm mb-4">Защита от объёмных атак: UDP flood, ICMP flood, IP fragmentation. Фильтрация на уровне пакетов с минимальной задержкой.</p>
+          <ul class="space-y-1">
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> UDP / ICMP Flood</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> IP Fragmentation</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> Amplification-атаки (DNS, NTP, memcached)</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> Spoofed-трафик</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand text-white font-bold text-sm">L4</span>
+            <h3 class="text-lg font-bold text-dark-900">Транспортный уровень</h3>
+          </div>
+          <p class="text-dark-500 text-sm mb-4">Защита TCP-соединений от SYN flood, ACK flood и других атак на состояние соединения. Stateful-инспекция трафика.</p>
+          <ul class="space-y-1">
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> SYN / ACK / RST Flood</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> TCP State Exhaustion</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> Connection Flood</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> Slowloris</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand text-white font-bold text-sm">L7</span>
+            <h3 class="text-lg font-bold text-dark-900">Прикладной уровень</h3>
+          </div>
+          <p class="text-dark-500 text-sm mb-4">Интеллектуальная фильтрация HTTP/HTTPS-запросов. Выявление и блокировка ботов, парсеров и application-layer атак.</p>
+          <ul class="space-y-1">
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> HTTP Flood</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> Slow HTTP Attacks</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> API Abuse</li>
+            <li class="text-sm text-dark-600 flex items-start gap-2"><span class="text-brand">•</span> Browser Challenge</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== BGP SECTION ===== #}
+  <section class="py-12 md:py-20">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-dark-900 mb-4">Как работает BGP-защита</h2>
+        <p class="text-lg text-dark-500">
+          <strong>BGP (Border Gateway Protocol)</strong> — протокол динамической маршрутизации, используемый для обмена
+          маршрутной информацией между автономными системами в интернете.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-2xl font-extrabold mb-4">01</div>
+          <h3 class="text-xl font-bold text-dark-900 mb-3">Анонсирование</h3>
+          <p class="text-dark-500">Мы анонсируем ваши IP-префиксы через нашу автономную систему. Весь входящий трафик перенаправляется на наши центры очистки.</p>
+        </div>
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-2xl font-extrabold mb-4">02</div>
+          <h3 class="text-xl font-bold text-dark-900 mb-3">Очистка</h3>
+          <p class="text-dark-500">Трафик проходит через многоуровневые фильтры. Вредоносные пакеты отбрасываются, легитимные — пропускаются.</p>
+        </div>
+        <div class="text-center">
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand/10 text-brand text-2xl font-extrabold mb-4">03</div>
+          <h3 class="text-xl font-bold text-dark-900 mb-3">Доставка</h3>
+          <p class="text-dark-500">Очищенный трафик доставляется на ваш сервер через GRE-туннель или прямое подключение с минимальной задержкой.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== SPECIFICATIONS ===== #}
+  <section class="py-12 md:py-20 bg-gray-50">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-dark-900">Технические характеристики</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">10 Tbps</div>
+          <div class="text-xs md:text-sm text-dark-500">Макс. мощность фильтрации</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">&lt;1 мс</div>
+          <div class="text-xs md:text-sm text-dark-500">Задержка при фильтрации</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">&lt;10 сек</div>
+          <div class="text-xs md:text-sm text-dark-500">Время обнаружения атаки</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">99.99%</div>
+          <div class="text-xs md:text-sm text-dark-500">SLA по доступности</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">BGP/GRE</div>
+          <div class="text-xs md:text-sm text-dark-500">Протоколы подключения</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">24/7</div>
+          <div class="text-xs md:text-sm text-dark-500">Мониторинг и поддержка</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="py-16 md:py-24 bg-dark-900">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Защитите свою сеть уже сегодня</h2>
+      <p class="text-lg text-dark-300 mb-8 max-w-xl mx-auto">Подключение Anti-DDoS защиты занимает от 15 минут. Первые 24 часа — бесплатно.</p>
+      <a href="/contacts" class="inline-block px-8 py-4 bg-brand text-white font-bold rounded-lg hover:bg-brand-600 transition-colors text-lg">Подключить Anti-DDoS</a>
+    </div>
+  </section>
+
+  {# ===== CMS AREA ===== #}
+  {% rendercall helpers.container() %}
+    {% area data.page, 'main' %}
+  {% endrendercall %}
+{% endblock %}

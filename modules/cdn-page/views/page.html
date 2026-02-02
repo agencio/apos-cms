@@ -1,0 +1,189 @@
+{% extends "layout.html" %}
+{% import 'theme:helpers.html' as helpers %}
+
+{% block title %}CDN — Сеть доставки контента, ускорение сайта, кэширование | AntiDDoS.su{% endblock %}
+
+{% block extraHead %}
+  {{ super() }}
+  <meta name="description" content="CDN от AntiDDoS.su — ускорение загрузки сайтов и приложений. 50+ точек присутствия, кэширование статики, бесплатный SSL, HTTP/3. Снижение нагрузки на сервер до 90%.">
+  <meta name="keywords" content="CDN, сеть доставки контента, ускорение сайта, кэширование, SSL, HTTP/3, Content Delivery Network">
+  <meta property="og:title" content="CDN — Сеть доставки контента | AntiDDoS.su">
+  <meta property="og:description" content="Ускорение загрузки сайтов: 50+ точек присутствия, кэширование, бесплатный SSL, HTTP/3.">
+  <link rel="canonical" href="https://antiddos.su/cdn">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "CDN — Сеть доставки контента",
+    "provider": {"@type": "Organization", "name": "AntiDDoS.su"},
+    "description": "Ускорение загрузки сайтов: 50+ точек присутствия, кэширование, HTTP/3, бесплатный SSL.",
+    "serviceType": "Content Delivery Network"
+  }
+  </script>
+{% endblock %}
+
+{% block main %}
+  {# ===== PAGE HERO ===== #}
+  <section class="relative bg-dark-900 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background: radial-gradient(circle at 50% 50%, rgba(0,184,255,0.3) 0%, transparent 60%);"></div>
+    </div>
+    <div class="relative w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl py-16 md:py-24">
+      <div class="max-w-3xl">
+        <span class="inline-block px-3 py-1 bg-brand/20 text-brand text-sm font-semibold rounded-full mb-4">Услуга</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Сеть доставки <span class="text-brand">контента (CDN)</span></h1>
+        <p class="text-lg text-dark-300 max-w-2xl">
+          Ускорьте загрузку вашего сайта для пользователей по всему миру.
+          50+ точек присутствия, интеллектуальное кэширование и бесплатный SSL.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {# ===== WHAT IS CDN ===== #}
+  <section class="py-12 md:py-20">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-headings:text-dark-900 prose-p:text-dark-600">
+        <h2>Что такое CDN и зачем он нужен</h2>
+        <p>
+          <strong>CDN (Content Delivery Network)</strong> — это географически распределённая сеть серверов,
+          которая кэширует и доставляет контент вашего сайта с ближайшей к пользователю точки.
+        </p>
+        <p>
+          Результат — <strong>ускорение загрузки до 3 раз</strong>, снижение нагрузки на origin-сервер
+          до <strong>90%</strong> и повышение SEO-рейтинга благодаря улучшению показателей Core Web Vitals.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CDN ADVANTAGES ===== #}
+  <section class="py-12 md:py-20 bg-gray-50">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-dark-900 mb-4">Преимущества нашего CDN</h2>
+        <p class="text-lg text-dark-500 max-w-2xl mx-auto">Современная инфраструктура для максимальной производительности</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="text-3xl mb-4">🌍</div>
+          <h3 class="text-lg font-bold text-dark-900 mb-2">50+ точек присутствия</h3>
+          <p class="text-dark-500 text-sm">Edge-серверы в ключевых городах: Москва, Франкфурт, Амстердам, Лондон, Нью-Йорк, Сингапур и другие.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="text-3xl mb-4">⚡</div>
+          <h3 class="text-lg font-bold text-dark-900 mb-2">HTTP/3 и QUIC</h3>
+          <p class="text-dark-500 text-sm">Поддержка новейших протоколов. Мультиплексирование запросов, 0-RTT handshake.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="text-3xl mb-4">🔒</div>
+          <h3 class="text-lg font-bold text-dark-900 mb-2">Бесплатный SSL</h3>
+          <p class="text-dark-500 text-sm">Автоматический выпуск и продление SSL-сертификатов Let's Encrypt. TLS 1.3 по умолчанию.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="text-3xl mb-4">🖼️</div>
+          <h3 class="text-lg font-bold text-dark-900 mb-2">Оптимизация изображений</h3>
+          <p class="text-dark-500 text-sm">Автоматическая конвертация в WebP/AVIF, ресайз и сжатие на лету. Экономия трафика до 60%.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="text-3xl mb-4">📦</div>
+          <h3 class="text-lg font-bold text-dark-900 mb-2">Умное кэширование</h3>
+          <p class="text-dark-500 text-sm">Гибкие правила кэширования: по URL, заголовкам, типу контента. Инвалидация кэша через API.</p>
+        </div>
+        <div class="bg-white rounded-xl border border-dark-200 p-6">
+          <div class="text-3xl mb-4">📈</div>
+          <h3 class="text-lg font-bold text-dark-900 mb-2">Аналитика</h3>
+          <p class="text-dark-500 text-sm">Детальная статистика: hit/miss ratio, география пользователей, время ответа по каждому URL.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== SPECIFICATIONS ===== #}
+  <section class="py-12 md:py-20">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-dark-900">Технические возможности</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">50+</div>
+          <div class="text-xs md:text-sm text-dark-500">Точек присутствия</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">&lt;20 мс</div>
+          <div class="text-xs md:text-sm text-dark-500">Средний TTFB</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">100 Gbps</div>
+          <div class="text-xs md:text-sm text-dark-500">Пропускная способность</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">99.99%</div>
+          <div class="text-xs md:text-sm text-dark-500">SLA по доступности</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">HTTP/3</div>
+          <div class="text-xs md:text-sm text-dark-500">Протокол</div>
+        </div>
+        <div class="text-center p-4 bg-white rounded-xl border border-dark-200">
+          <div class="text-2xl md:text-3xl font-extrabold text-brand mb-2">TLS 1.3</div>
+          <div class="text-xs md:text-sm text-dark-500">Шифрование</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== USE CASES ===== #}
+  <section class="py-12 md:py-20 bg-gray-50">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-dark-900">Для кого подходит CDN</h2>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-6">
+        <div class="flex gap-4 p-6 bg-white rounded-xl border border-dark-200">
+          <div class="text-3xl flex-shrink-0">🛒</div>
+          <div>
+            <h3 class="text-lg font-bold text-dark-900 mb-2">Интернет-магазины</h3>
+            <p class="text-dark-500 text-sm">Ускорение загрузки каталогов и изображений товаров. Каждая секунда задержки снижает конверсию на 7%.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-6 bg-white rounded-xl border border-dark-200">
+          <div class="text-3xl flex-shrink-0">📰</div>
+          <div>
+            <h3 class="text-lg font-bold text-dark-900 mb-2">Медиа и контент-проекты</h3>
+            <p class="text-dark-500 text-sm">Быстрая доставка видео, изображений и статей. Снижение нагрузки при вирусных публикациях.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-6 bg-white rounded-xl border border-dark-200">
+          <div class="text-3xl flex-shrink-0">🎮</div>
+          <div>
+            <h3 class="text-lg font-bold text-dark-900 mb-2">Игровые проекты</h3>
+            <p class="text-dark-500 text-sm">Доставка патчей, обновлений и игровых ресурсов с минимальной задержкой.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 p-6 bg-white rounded-xl border border-dark-200">
+          <div class="text-3xl flex-shrink-0">💼</div>
+          <div>
+            <h3 class="text-lg font-bold text-dark-900 mb-2">SaaS и бизнес-приложения</h3>
+            <p class="text-dark-500 text-sm">Ускорение работы веб-интерфейсов для пользователей в разных регионах.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="py-16 md:py-24 bg-dark-900">
+    <div class="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:max-w-screen-xl text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Ускорьте ваш сайт</h2>
+      <p class="text-lg text-dark-300 mb-8 max-w-xl mx-auto">Подключение CDN — 5 минут. Измените DNS и наслаждайтесь скоростью.</p>
+      <a href="/contacts" class="inline-block px-8 py-4 bg-brand text-white font-bold rounded-lg hover:bg-brand-600 transition-colors text-lg">Подключить CDN</a>
+    </div>
+  </section>
+
+  {% rendercall helpers.container() %}
+    {% area data.page, 'main' %}
+  {% endrendercall %}
+{% endblock %}

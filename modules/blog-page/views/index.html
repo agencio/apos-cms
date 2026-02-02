@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% import 'theme:helpers.html' as helpers %}
+
+{% block title %}Блог — AntiDDoS.su | Статьи о DDoS-защите, BGP, WAF и CDN{% endblock %}
+
+{% block extraHead %}
+  {{ super() }}
+  <meta name="description" content="Экспертные статьи о защите от DDoS-атак, BGP-фильтрации, WAF, CDN и кибербезопасности. Технический блог AntiDDoS.su.">
+{% endblock %}
+
+{% block main %}
+  {% rendercall helpers.container() %}
+    {# Blog Hero #}
+    <div class="py-12 md:py-20 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-dark-900 mb-4">Блог</h1>
+      <p class="text-lg text-dark-500 max-w-2xl mx-auto">Экспертные статьи о защите от DDoS-атак, BGP, WAF, CDN и кибербезопасности</p>
+    </div>
+
+    {# Blog Grid #}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">
+      {% for piece in data.pieces %}
+        <a href="{{ piece._url }}" class="group block bg-white rounded-xl border border-dark-200 hover:border-brand transition-colors overflow-hidden">
+          <div class="p-6">
+            <div class="flex items-center gap-3 mb-4">
+              {% if piece.category === 'cybersecurity' %}
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent-red bg-red-50 px-2 py-1 rounded">Кибербезопасность</span>
+              {% elif piece.category === 'technology' %}
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand bg-blue-50 px-2 py-1 rounded">Технологии</span>
+              {% elif piece.category === 'business' %}
+                <span class="text-xs font-semibold uppercase tracking-wider text-accent-green bg-green-50 px-2 py-1 rounded">Бизнес</span>
+              {% endif %}
+              {% if piece.publishDate %}
+                <span class="text-xs text-dark-400">{{ piece.publishDate }}</span>
+              {% endif %}
+            </div>
+            <h2 class="text-lg font-bold text-dark-900 group-hover:text-brand transition-colors mb-3">{{ piece.title }}</h2>
+            {% if piece.subtitle %}
+              <p class="text-sm text-dark-500 line-clamp-3">{{ piece.subtitle }}</p>
+            {% endif %}
+            <div class="mt-4 text-sm font-semibold text-brand">
+              Читать статью →
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+    {# Pagination #}
+    {% if data.totalPages > 1 %}
+      {% include "pager.html" %}
+    {% endif %}
+  {% endrendercall %}
+{% endblock %}
